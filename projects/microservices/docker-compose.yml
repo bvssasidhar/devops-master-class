@@ -1,7 +1,8 @@
 version: '3.7'
 services:
   currency-exchange:
-    image: in28min/currency-exchange:0.0.1-RELEASE
+    image: bvssasidhar/currency-exchange:0.0.1
+    build: ./01-currency-exchange-microservice-basic/
     ports:
       - "8000:8000"
     restart: always
@@ -9,7 +10,8 @@ services:
       - currency-compose-network
 
   currency-conversion:
-    image: in28min/currency-conversion:0.0.1-RELEASE
+    image: bvssasidhar/currency-conversion:0.0.1
+    build: ./02-currency-conversion-microservice-basic/
     ports:
       - "8100:8100"
     restart: always
