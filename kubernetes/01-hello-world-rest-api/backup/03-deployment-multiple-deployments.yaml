@@ -79,6 +79,6 @@ spec:
     targetPort: 8080
   selector:
     app: hello-world-rest-api
-    version: v2
+    version: v2 #if commented, service will share load between v1 n v2 pods
   sessionAffinity: None
   type: LoadBalancer

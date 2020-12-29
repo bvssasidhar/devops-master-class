@@ -2,7 +2,7 @@ version: '3.7'
 services:
   currency-exchange:
     image: bvssasidhar/currency-exchange:0.0.1
-    build: ./01-currency-exchange-microservice-basic/
+    #build: ./01-currency-exchange-microservice-basic/
     ports:
       - "8000:8000"
     restart: always
@@ -11,7 +11,7 @@ services:
 
   currency-conversion:
     image: bvssasidhar/currency-conversion:0.0.1
-    build: ./02-currency-conversion-microservice-basic/
+    #build: ./02-currency-conversion-microservice-basic/
     ports:
       - "8100:8100"
     restart: always
@@ -25,3 +25,15 @@ services:
 # Networks to be created to facilitate communication between containers
 networks:
   currency-compose-network:
+
+#cmd to execute: docker-compose up -d (to launch in detatched mode)
+#cmd to bring containers down: docker-compose down (will stop containers and also remove the network)
+#to view events: docker-compose events
+#to view config : docker-compose config (useful to validate compose yaml file)
+#docker-compose ps (to view containers)
+#docker-compose top
+#docker-compose stop or kill
+
+
+#localhost:8100/currency-conversion/from/EUR/to/INR/quantity/10
+#localhost:8000/currency-exchange/from/EUR/to/INR

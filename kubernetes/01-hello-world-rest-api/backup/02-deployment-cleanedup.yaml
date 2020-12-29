@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  labels:
+  labels: #labels of the deployment
     app: hello-world-rest-api
   name: hello-world-rest-api
   namespace: default
@@ -9,7 +9,7 @@ spec:
   replicas: 3
   minReadySeconds: 45
   selector:
-    matchLabels:
+    matchLabels: #match the pods to deployment
       app: hello-world-rest-api
   strategy:
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      labels:
+      labels: #labels of the pods/containers
         app: hello-world-rest-api
     spec:
       containers:
@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
+  labels: #labels of the service
     app: hello-world-rest-api
   name: hello-world-rest-api
   namespace: default
@@ -41,7 +41,7 @@ spec:
     port: 8080
     protocol: TCP
     targetPort: 8080
-  selector:
+  selector: #to map with the pods (not deployment)
     app: hello-world-rest-api
   sessionAffinity: None
   type: LoadBalancer
